@@ -28,6 +28,15 @@
     height: 40px;
   }
 
+.btn-excluir{
+    background-color: #D72D2D !important;
+    font-weight: 600 !important;
+}
+.btn-edit{
+    background-color: #263292 !important;
+    font-weight: 600 !important;
+}
+
 
 input[type="number"].no-spinner::-webkit-outer-spin-button,
 input[type="number"].no-spinner::-webkit-inner-spin-button {
