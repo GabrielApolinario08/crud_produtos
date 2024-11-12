@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import "./style.css";
+import { Products } from "../chart/Products";
 
-function ModalCreate({ show, onClose }) {
+function ModalAdd({ show, onClose }) {
   const [validated, setValidated] = useState(false); // Para controle de validação
+  const [productName, setProductName] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productQuantity, setProductQuantity] = useState("");
+  const [productCategory, setProductCategory] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,7 +19,22 @@ function ModalCreate({ show, onClose }) {
     if (form.checkValidity() === false) {
       setValidated(true); // Marca como inválido para mostrar os feedbacks
     } else {
-      alert("Produto Cadastrado"); // Se válido, executa a ação desejada
+      Products.push({
+        name: productName,
+        description: productDescription,
+        price: productPrice,
+        quantity: parseInt(productQuantity),
+        category: productCategory,
+      });
+      alert("Produto Cadastrado");
+      setProductName("");
+      setProductDescription("");
+      setProductPrice("");
+      setProductQuantity("");
+      setProductCategory("");
+
+      setValidated(false);
+      onClose();
     }
   };
 
@@ -41,6 +62,8 @@ function ModalCreate({ show, onClose }) {
                   type="text"
                   placeholder="Digite o nome do produto"
                   required
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
                 />
                 <Form.Control.Feedback type="invalid">
                   O nome do produto é obrigatório.
@@ -58,6 +81,8 @@ function ModalCreate({ show, onClose }) {
                 <Form.Control
                   type="text"
                   placeholder="Digite a descrição do produto"
+                  value={productDescription}
+                  onChange={(e) => setProductDescription(e.target.value)}
                 />
               </Col>
             </Row>
@@ -77,6 +102,8 @@ function ModalCreate({ show, onClose }) {
                   required
                   className="no-spinner"
                   step="0.01"
+                  value={productPrice}
+                  onChange={(e) => setProductPrice(e.target.value)}
                 />
                 <Form.Control.Feedback type="invalid">
                   O preço é obrigatório.
@@ -98,6 +125,8 @@ function ModalCreate({ show, onClose }) {
                   placeholder="Digite a quantidade"
                   required
                   className="no-spinner"
+                  value={productQuantity}
+                  onChange={(e) => setProductQuantity(e.target.value)}
                 />
                 <Form.Control.Feedback type="invalid">
                   A quantidade é obrigatória.
@@ -115,6 +144,8 @@ function ModalCreate({ show, onClose }) {
                 <Form.Control
                   type="text"
                   placeholder="Digite a Categoria do produto"
+                  value={productCategory}
+                  onChange={(e) => setProductCategory(e.target.value)}
                 />
               </Col>
             </Row>
@@ -131,4 +162,4 @@ function ModalCreate({ show, onClose }) {
   );
 }
 
-export default ModalCreate;
+export default ModalAdd;

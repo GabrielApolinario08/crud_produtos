@@ -1,75 +1,72 @@
 export const Products = [
   {
-    name: "1",
-    description:
-      "Camiseta 100% algodão, disponível nas cores preto, branco e cinza.",
-    price: "49.90",
-    quantity: 150,
-    category: "Vestuário",
+    name: "Caixão para Broxa",
+    description: "Para quem não deu conta do recado, vem com alça reforçada para aguentar o peso do constrangimento.",
+    price: 899.99,
+    quantity: 1,
+    category: "Produtos Especiais",
   },
   {
-    name: "2",
-    description:
-      "Livro de autoajuda que explora a ciência por trás da formação dos hábitos.",
-    price: "39.90",
+    name: "Óculos de Visão de Raio-X Mentiroso",
+    description: "Finalmente, veja tudo que ninguém pediu para ver! (Aviso: só funciona na sua imaginação).",
+    price: 59.99,
+    quantity: 25,
+    category: "Acessórios Mágicos",
+  },
+  {
+    name: "Camisa Anti-Sogra",
+    description: "Repele comentários ácidos a até 5 metros de distância. Modelo aprovado para almoços de domingo.",
+    price: 79.90,
     quantity: 100,
-    category: "Livros",
-  },
-  {
-    name: "3",
-    description:
-      "Camiseta 100% algodão, disponível nas cores preto, branco e cinza.",
-    price: "49.90",
-    quantity: 150,
     category: "Vestuário",
   },
   {
-    name: "4",
-    description:
-      "Livro de autoajuda que explora a ciência por trás da formação dos hábitos.",
-    price: "39.90",
+    name: "Desodorante para Mente Poluída",
+    description: "Refresca pensamentos inadequados por até 48 horas (ou pelo menos tenta).",
+    price: 19.90,
+    quantity: 200,
+    category: "Cuidados Pessoais",
+  },
+  {
+    name: "Capa de Invisibilidade para Boletos",
+    description: "Torna qualquer conta invisível! Atenção: só visível para o dono.",
+    price: 29.90,
+    quantity: 300,
+    category: "Magia Moderna",
+  },
+  {
+    name: "Almofada Abraço de Carência",
+    description: "Para aqueles dias solitários. Mais fofo que qualquer realidade.",
+    price: 49.90,
+    quantity: 500,
+    category: "Conforto",
+  },
+  {
+    name: "Detector de Ex Encrenca",
+    description: "Apita quando sente treta chegando. Funciona a até 10 metros de distância.",
+    price: 89.90,
+    quantity: 75,
+    category: "Acessórios Pessoais",
+  },
+  {
+    name: "Tapa-Olho para Conversa Chata",
+    description: "Coloque e pronto! Você automaticamente não está mais lá. Acompanha fones de ouvido imaginários.",
+    price: 14.90,
+    quantity: 150,
+    category: "Acessórios Cômicos",
+  },
+  {
+    name: "Colírio Apagador de Desculpas",
+    description: "Apague aquela desculpa esfarrapada da sua memória (ou pelo menos tente).",
+    price: 24.90,
     quantity: 100,
-    category: "Livros",
+    category: "Cuidados Especiais",
   },
   {
-    name: "5",
-    description:
-      "Camiseta 100% algodão, disponível nas cores preto, branco e cinza.",
-    price: "49.90",
-    quantity: 150,
-    category: "Vestuário",
-  },
-  ,
-  {
-    name: "6",
-    description:
-      "Livro de autoajuda que explora a ciência a a ciência a a ciência a a ciência a a ciência a a ciência a a ciência a a ciência a a ciência por trás da formação dos hábitos.",
-    price: "39.90",
-    quantity: 100,
-    category: "Livros",
-  },
-  {
-    name: "7",
-    description:
-      "Camiseta 100% algodãoque explora a ciência a a ciênciaque explora a ciência a a ciênciaque explora a ciência a a ciênciaque explora a ciência a a ciênciaque explora a ciência a a ciêncianível nas cores preto, branco e cinza.",
-    price: "49.90",
-    quantity: 150,
-    category: "Vestuário",
-  },
-  {
-    name: "8",
-    description:
-      "Livro de autoajuda que explora a ciência por trás da fque explora a ciência a a ciênciaque explora a ciência a a ciênciaque explora a ciência a a ciênciaque explora a ciência a a ciênciaormação dos hábitos.",
-    price: "39.90",
-    quantity: 100,
-    category: "Livros",
-  },
-  {
-    name: "9",
-    description:
-      "Camiseta 100% algodão, disponível nas corseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brancseta 100% algodão, disponível nas cores preto, brances preto, branco e cinza.",
-    price: "49.90",
-    quantity: 150,
-    category: "Vestuário",
-  },
+    name: "Zíper de Boca para Opiniões Não Solicitadas",
+    description: "Ajuda a manter as opiniões para si. Útil em jantares e reuniões de família.",
+    price: 9.99,
+    quantity: 250,
+    category: "Controle Pessoal",
+  }
 ];

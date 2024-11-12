@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from 'react';
 import Search from "./components/search/Search";
 import Table from "./components/chart/Chart";
-import ModalCreate from "./components/modal/ModalCreate";
+import ModalCreate from "./components/modal/ModalAdd";
 
 function App() {
   const [showCreateModal, setShowCreateModal] = useState(false);
