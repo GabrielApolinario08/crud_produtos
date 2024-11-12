@@ -17,7 +17,6 @@ function ModalCreate({ show, onClose }) {
     }
   };
 
-
   return (
     <Modal className="modalScreen" show={show} onHide={onClose} centered>
       <Modal.Header closeButton className="modalHeader">

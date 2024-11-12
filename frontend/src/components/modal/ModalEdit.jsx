@@ -47,96 +47,129 @@ const ModalEdit = ({ show, handleClose, product }) => {
             onSubmit={handleSubmit}
           >
             <Form.Group controlId="formProductName" className="mb-3">
-              <Form.Label>
-                Nome <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={editedProduct.name || ""}
-                required
-                onChange={(e) =>
-                  setEditedProduct({ ...editedProduct, name: e.target.value })
-                }
-              />
-              <Form.Control.Feedback type="invalid">
-                O nome do produto é obrigatório.
-              </Form.Control.Feedback>
+              <Row className="align-items-center">
+                <Col xs={3}>
+                  <Form.Label>
+                    Nome <span className="text-danger">*</span>
+                  </Form.Label>
+                </Col>
+                <Col xs={9}>
+                  <Form.Control
+                    type="text"
+                    name="name"
+                    value={editedProduct.name || ""}
+                    required
+                    onChange={(e) =>
+                      setEditedProduct({
+                        ...editedProduct,
+                        name: e.target.value,
+                      })
+                    }
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    O nome do produto é obrigatório.
+                  </Form.Control.Feedback>
+                </Col>
+              </Row>
             </Form.Group>
 
             <Form.Group controlId="formProductDesc" className="mb-3">
-              <Form.Label>Descrição</Form.Label>
-              <Form.Control
-                type="text"
-                name="description"
-                value={editedProduct.description || ""}
-                onChange={(e) =>
-                  setEditedProduct({
-                    ...editedProduct,
-                    description: e.target.value,
-                  })
-                }
-              />
+              <Row className="align-items-center">
+                <Col xs={3}>
+                  <Form.Label>Descrição</Form.Label>
+                </Col>
+                <Col xs={9}>
+                  <Form.Control
+                    type="text"
+                    name="description"
+                    value={editedProduct.description || ""}
+                    onChange={(e) =>
+                      setEditedProduct({
+                        ...editedProduct,
+                        description: e.target.value,
+                      })
+                    }
+                  />
+                </Col>
+              </Row>
             </Form.Group>
 
             <Form.Group controlId="formProductPrice" className="mb-3">
-              <Form.Label>
-                Preço <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Control
-                type="number"
-                name="price"
-                value={editedProduct.price || ""}
-                className="no-spinner"
-                step="0.01"
-                required
-                onChange={(e) =>
-                  setEditedProduct({
-                    ...editedProduct,
-                    price: parseFloat(e.target.value),
-                  })
-                }
-              />
-              <Form.Control.Feedback type="invalid">
-                O preço é obrigatório.
-              </Form.Control.Feedback>
+              <Row className="align-items-center">
+                <Col xs={3}>
+                  <Form.Label>
+                    Preço <span className="text-danger">*</span>
+                  </Form.Label>
+                </Col>
+                <Col xs={9}>
+                  <Form.Control
+                    type="number"
+                    name="price"
+                    value={editedProduct.price || ""}
+                    className="no-spinner"
+                    step="0.01"
+                    required
+                    onChange={(e) =>
+                      setEditedProduct({
+                        ...editedProduct,
+                        price: parseFloat(e.target.value),
+                      })
+                    }
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    O preço é obrigatório.
+                  </Form.Control.Feedback>
+                </Col>
+              </Row>
             </Form.Group>
 
             <Form.Group controlId="formProductQuantity" className="mb-3">
-              <Form.Label>
-                Quantidade <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Control
-                type="number"
-                name="quantity"
-                value={editedProduct.quantity || ""}
-                required
-                className="no-spinner"
-                onChange={(e) =>
-                  setEditedProduct({
-                    ...editedProduct,
-                    quantity: parseInt(e.target.value),
-                  })
-                }
-              />
-              <Form.Control.Feedback type="invalid">
-                A quantidade é obrigatória.
-              </Form.Control.Feedback>
+              <Row className="align-items-center">
+                <Col xs={3}>
+                  <Form.Label>
+                    Quantidade <span className="text-danger">*</span>
+                  </Form.Label>
+                </Col>
+                <Col xs={9}>
+                  <Form.Control
+                    type="number"
+                    name="quantity"
+                    value={editedProduct.quantity || ""}
+                    required
+                    className="no-spinner"
+                    onChange={(e) =>
+                      setEditedProduct({
+                        ...editedProduct,
+                        quantity: parseInt(e.target.value),
+                      })
+                    }
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    A quantidade é obrigatória.
+                  </Form.Control.Feedback>
+                </Col>
+              </Row>
             </Form.Group>
 
             <Form.Group controlId="formProductCategory" className="mb-3">
-              <Form.Label>Categoria</Form.Label>
-              <Form.Control
-                type="text"
-                name="category"
-                value={editedProduct.category || ""}
-                onChange={(e) =>
-                  setEditedProduct({
-                    ...editedProduct,
-                    category: e.target.value,
-                  })
-                }
-              />
+              <Row className="align-items-center">
+                <Col xs={3}>
+                  <Form.Label>Categoria</Form.Label>
+                </Col>
+                <Col xs={9}>
+                  <Form.Control
+                    type="text"
+                    name="category"
+                    value={editedProduct.category || ""}
+                    onChange={(e) =>
+                      setEditedProduct({
+                        ...editedProduct,
+                        category: e.target.value,
+                      })
+                    }
+                  />
+                </Col>
+              </Row>
             </Form.Group>
           </Form>
         )}
@@ -145,7 +178,7 @@ const ModalEdit = ({ show, handleClose, product }) => {
         <Button className="btn-excluir">Excluir</Button>
         <Button
           className="btn-edit"
-          onClick={handleSubmit} // Chamando handleSubmit diretamente
+          onClick={handleSubmit} 
         >
           Editar
         </Button>
