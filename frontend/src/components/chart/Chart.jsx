@@ -102,6 +102,7 @@ const chart = () => {
             <th>Preço</th>
             <th>Quantidade</th>
             <th>Categoria</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -112,6 +113,7 @@ const chart = () => {
               <td>{product.price}</td>
               <td>{product.quantity}</td>
               <td>{product.category}</td>
+              <td><button className="btn-editar">Editar</button></td>
             </tr>
           ))}
         </tbody>
