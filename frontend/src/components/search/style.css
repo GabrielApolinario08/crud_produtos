@@ -1,0 +1,25 @@
+.search{
+    align-items:  flex-end; 
+}
+
+
+.btn-filtrar{
+    background-color: #1F67E0 !important;
+}
+.btn-limpar{
+    background-color: #6BB39B !important;
+    
+}
+label{
+    font-weight: 500;
+}
+.btn{
+    border: none !important;
+    height: 40px;
+    width: 100px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.input-categoria, .input-nome{
+    border: 1px #A5A5A5 solid !important;
+    background-color: #F7F4E8 !important;
+}
