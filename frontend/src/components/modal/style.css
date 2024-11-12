@@ -1,0 +1,42 @@
+.modalHeader, .modal-footer{
+    border: none !important;
+}
+
+
+.modalScreen{
+    background-color: rgba(0, 0, 0, 0.425) !important;
+    
+}
+.modal-content{
+  
+    border: 1px solid rgb(0, 0, 0) !important;
+    background-color: #D9D9D9 !important;
+}
+.form-label {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+.text-danger {
+    margin-left: 2px; 
+  }
+
+  .btn-form-cadastrar{
+    background-color: #089301 !important;
+    
+    width: 120px;
+    height: 40px;
+  }
+
+
+input[type="number"].no-spinner::-webkit-outer-spin-button,
+input[type="number"].no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"].no-spinner {
+  -moz-appearance: textfield; 
+  appearance: none;
+}
+
