@@ -24,6 +24,12 @@ const Chart = () => {
     }
   };
 
+  const onEdit = () => {
+    fetch("http://localhost:3000/api/produtos")
+      .then(response => response.json())
+      .then(data => setProducts(data.produtos)); // Atualiza a lista de produtos após a edição
+  };
+
   useEffect(() => {
     refreshProducts(); // Chama a função para buscar produtos quando o componente for montado
   }, [currentPage]);
@@ -100,6 +106,7 @@ const Chart = () => {
         show={showModal}
         handleClose={handleCloseModal}
         product={selectedProduct}
+        onEdit={onEdit}
       />
     </Container>
   );

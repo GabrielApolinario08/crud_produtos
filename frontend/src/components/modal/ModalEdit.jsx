@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import "./style.css";
 
-const ModalEdit = ({ show, handleClose, product }) => {
+const ModalEdit = ({ show, handleClose, product , onEdit }) => {
   const [editedProduct, setEditedProduct] = useState({});
   const [validated, setValidated] = useState(false);
 
@@ -14,7 +14,7 @@ const ModalEdit = ({ show, handleClose, product }) => {
   }, [product]);
 
   // Função para validar o formulário e exibir alerta
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const form = document.getElementById("editForm");
 
@@ -22,9 +22,33 @@ const ModalEdit = ({ show, handleClose, product }) => {
     if (form.checkValidity() === false) {
       setValidated(true); // Mostra os feedbacks de erro
     } else {
-      alert("Produto Editado"); // Se válido, exibe o alerta
-      setValidated(false);
-      handleClose(); // Fecha o modal
+      try {
+        // Envia os dados atualizados para a API
+        const response = await fetch(`http://localhost:3000/api/produtos/${editedProduct.id}`, {
+          method: "PUT", // Método para editar o produto
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: editedProduct.nome,
+            descricao: editedProduct.descricao,
+            preco: editedProduct.preco,
+            quantidade: editedProduct.quantidade,
+            categoria: editedProduct.categoria,
+          }),
+        });
+
+        if (response.ok) {
+          alert("Produto Editado com Sucesso");
+          handleClose(); // Fecha o modal
+          onEdit(); 
+        } else {
+          alert("Erro ao editar produto");
+        }
+      } catch (error) {
+        console.error("Erro ao editar produto:", error);
+        alert("Erro ao editar produto");
+      }
     }
   };
 
@@ -56,13 +80,13 @@ const ModalEdit = ({ show, handleClose, product }) => {
                 <Col xs={9}>
                   <Form.Control
                     type="text"
-                    name="name"
-                    value={editedProduct.name || ""}
+                    name="nome"
+                    value={editedProduct.nome || ""}
                     required
                     onChange={(e) =>
                       setEditedProduct({
                         ...editedProduct,
-                        name: e.target.value,
+                        nome: e.target.value,
                       })
                     }
                   />
@@ -81,12 +105,12 @@ const ModalEdit = ({ show, handleClose, product }) => {
                 <Col xs={9}>
                   <Form.Control
                     type="text"
-                    name="description"
-                    value={editedProduct.description || ""}
+                    name="descricao"
+                    value={editedProduct.descricao || ""}
                     onChange={(e) =>
                       setEditedProduct({
                         ...editedProduct,
-                        description: e.target.value,
+                        descricao: e.target.value,
                       })
                     }
                   />
@@ -104,15 +128,15 @@ const ModalEdit = ({ show, handleClose, product }) => {
                 <Col xs={9}>
                   <Form.Control
                     type="number"
-                    name="price"
-                    value={editedProduct.price || ""}
+                    name="preco"
+                    value={editedProduct.preco || ""}
                     className="no-spinner"
                     step="0.01"
                     required
                     onChange={(e) =>
                       setEditedProduct({
                         ...editedProduct,
-                        price: parseFloat(e.target.value),
+                        preco: parseFloat(e.target.value),
                       })
                     }
                   />
@@ -133,14 +157,14 @@ const ModalEdit = ({ show, handleClose, product }) => {
                 <Col xs={9}>
                   <Form.Control
                     type="number"
-                    name="quantity"
-                    value={editedProduct.quantity || ""}
+                    name="quantidade"
+                    value={editedProduct.quantidade || ""}
                     required
                     className="no-spinner"
                     onChange={(e) =>
                       setEditedProduct({
                         ...editedProduct,
-                        quantity: parseInt(e.target.value),
+                        quantidade: parseInt(e.target.value),
                       })
                     }
                   />
@@ -159,12 +183,12 @@ const ModalEdit = ({ show, handleClose, product }) => {
                 <Col xs={9}>
                   <Form.Control
                     type="text"
-                    name="category"
-                    value={editedProduct.category || ""}
+                    name="categoria"
+                    value={editedProduct.categoria || ""}
                     onChange={(e) =>
                       setEditedProduct({
                         ...editedProduct,
-                        category: e.target.value,
+                        categoria: e.target.value,
                       })
                     }
                   />
