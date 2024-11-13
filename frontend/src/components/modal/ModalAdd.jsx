@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import "./style.css";
-import { Products } from "../chart/Products";
 
 function ModalAdd({ show, onClose }) {
   const [validated, setValidated] = useState(false); // Para controle de validação
