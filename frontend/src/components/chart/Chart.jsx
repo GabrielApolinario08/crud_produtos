@@ -1,18 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Pagination, Container } from "react-bootstrap";
 import "./style.css";
 import ModalEdit from "../modal/ModalEdit";
-import { Products } from "./Products";
+import ModalAdd from "../modal/ModalAdd";
 
-
-
-const chart = () => {
+const Chart = () => {
+  const [products, setProducts] = useState([]); // Para armazenar os produtos do banco de dados
+  const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 5;
 
+  // Função para buscar os produtos do backend
+  const refreshProducts = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/produtos?pagina=${currentPage}&limite=${productsPerPage}`
+      );
+      const data = await response.json(); // Obtém o corpo da resposta como JSON
+      setProducts(data.produtos); // Armazena os produtos no estado
+      setTotalPages(Math.ceil(data.total / productsPerPage));
+    } catch (error) {
+      console.error("Erro ao buscar produtos:", error);
+    }
+  };
+
+  useEffect(() => {
+    refreshProducts(); // Chama a função para buscar produtos quando o componente for montado
+  }, [currentPage]);
+
+
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = Products.slice(
+  const currentProducts = products.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -46,33 +66,35 @@ const chart = () => {
           </tr>
         </thead>
         <tbody>
-          {currentProducts.map((product, index) => (
+          {products.map((product, index) => (
             <tr key={index}>
-              <td>{product.name}</td>
-              <td>{product.description}</td>
-              <td >R${product.price}</td>
-              <td>{product.quantity}</td>
-              <td>{product.category}</td>
+              <td>{product.nome}</td>
+              <td>{product.descricao}</td>
+              <td>R${product.preco}</td>
+              <td>{product.quantidade}</td>
+              <td>{product.categoria}</td>
               <td>
-                <button className="btn-editar" onClick={() => handleEdit(product)}>Editar</button>
+                <button
+                  className="btn-editar"
+                  onClick={() => handleEdit(product)}
+                >
+                  Editar
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
       <Pagination className="gap-2">
-        {Array.from(
-          { length: Math.ceil(Products.length / productsPerPage) },
-          (_, index) => (
-            <Pagination.Item
-              key={index + 1}
-              active={index + 1 === currentPage}
-              onClick={() => paginate(index + 1)}
-            >
-              {index + 1}
-            </Pagination.Item>
-          )
-        )}
+        {Array.from({ length: totalPages }, (_, index) => (
+          <Pagination.Item
+            key={index + 1}
+            active={index + 1 === currentPage}
+            onClick={() => paginate(index + 1)}
+          >
+            {index + 1}
+          </Pagination.Item>
+        ))}
       </Pagination>
       <ModalEdit
         show={showModal}
@@ -83,4 +105,4 @@ const chart = () => {
   );
 };
 
-export default chart;
+export default Chart;

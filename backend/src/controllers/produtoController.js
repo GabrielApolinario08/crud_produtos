@@ -47,7 +47,7 @@ exports.deletarProduto = async (req, res) => {
 
 exports.listarProdutos = async (req, res) => {
     try {
-        const { pagina = 1, limite = 10, busca = '' } = req.query;
+        const { pagina = 1, limite = 5, busca = '' } = req.query;
 
         const limiteNumero = parseInt(limite, 10); 
 

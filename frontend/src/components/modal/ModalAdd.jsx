@@ -37,7 +37,7 @@ function ModalAdd({ show, onClose }) {
 
         if (response.ok) {
           alert("Produto cadastrado com sucesso!");
-          // Limpa o formulário após o envio
+          window.location.reload()
           setProductName("");
           setProductDescription("");
           setProductPrice("");
