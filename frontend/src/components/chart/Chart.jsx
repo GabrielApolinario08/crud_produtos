@@ -2,23 +2,28 @@ import React, { useState, useEffect } from "react";
 import { Table, Pagination, Container } from "react-bootstrap";
 import "./style.css";
 import ModalEdit from "../modal/ModalEdit";
-import ModalAdd from "../modal/ModalAdd";
+import Search from "../search/Search";
 
-const Chart = () => {
+const Chart = ({ busca }) => {
   const [products, setProducts] = useState([]); // Para armazenar os produtos do banco de dados
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 5;
 
-  // Função para buscar os produtos do backend
-  const refreshProducts = async () => {
+  // Função para buscar os produtos do backend com filtros
+  const refreshProducts = async (busca) => {
+    if (busca == null) {
+      busca = "";
+    }
+    console.log(busca + "asdfasdasdasd");
+
     try {
       const response = await fetch(
-        `http://localhost:3000/api/produtos?pagina=${currentPage}&limite=${productsPerPage}`
+        `http://localhost:3000/api/produtos?pagina=${currentPage}&limite=${productsPerPage}&busca=${busca}`
       );
       const data = await response.json(); // Obtém o corpo da resposta como JSON
       setProducts(data.produtos); // Armazena os produtos no estado
-      setTotalPages(Math.ceil(data.total / productsPerPage));
+      setTotalPages(Math.ceil(data.total / productsPerPage)); // Calcula o número de páginas
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
     }
@@ -26,15 +31,13 @@ const Chart = () => {
 
   const onEdit = () => {
     fetch("http://localhost:3000/api/produtos")
-      .then(response => response.json())
-      .then(data => setProducts(data.produtos)); // Atualiza a lista de produtos após a edição
+      .then((response) => response.json())
+      .then((data) => setProducts(data.produtos)); // Atualiza a lista de produtos após a edição
   };
 
   useEffect(() => {
     refreshProducts(); // Chama a função para buscar produtos quando o componente for montado
-  }, [currentPage]);
-
-
+  }, [currentPage, busca]);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -91,6 +94,7 @@ const Chart = () => {
           ))}
         </tbody>
       </Table>
+
       <Pagination className="gap-2">
         {Array.from({ length: totalPages }, (_, index) => (
           <Pagination.Item
@@ -102,6 +106,7 @@ const Chart = () => {
           </Pagination.Item>
         ))}
       </Pagination>
+
       <ModalEdit
         show={showModal}
         handleClose={handleCloseModal}

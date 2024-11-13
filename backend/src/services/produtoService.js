@@ -43,6 +43,13 @@ class ProdutoService {
         const produtos = await produtoRepository.buscarProdutos(pagina, limite, busca);
         return produtos;
     };
+
+    async buscarProdutos(pagina = 1, limite = 10, busca = '', categoria = '') {
+    return await produtoRepository.buscarProdutos(pagina, limite, busca, categoria);
+}
+
+    
+    
 }
 
 module.exports = new ProdutoService();
