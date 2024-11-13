@@ -1,28 +1,28 @@
 export const Products = [
   {
     name: "Caixão para Broxa",
-    description: "Para quem não deu conta do recado, vem com alça reforçada para aguentar o peso do constrangimento.",
+    description: "Para quem não deu conta do recado, vem com alçconstrangimento.",
     price: 899.99,
     quantity: 1,
     category: "Produtos Especiais",
   },
   {
     name: "Óculos de Visão de Raio-X Mentiroso",
-    description: "Finalmente, veja tudo que ninguém pediu para ver! (Aviso: só funciona na sua imaginação).",
+    description: "Finalmente, veja tudo que ninguém pediu pana sua imaginação).",
     price: 59.99,
     quantity: 25,
     category: "Acessórios Mágicos",
   },
   {
     name: "Camisa Anti-Sogra",
-    description: "Repele comentários ácidos a até 5 metros de distância. Modelo aprovado para almoços de domingo.",
+    description: "Repele comentários ácidos a até 5 metros de dia almoços de domingo.",
     price: 79.90,
     quantity: 100,
     category: "Vestuário",
   },
   {
     name: "Desodorante para Mente Poluída",
-    description: "Refresca pensamentos inadequados por até 48 horas (ou pelo menos tenta).",
+    description: "Refresca pensamentos inadequados por até 4enos tenta).",
     price: 19.90,
     quantity: 200,
     category: "Cuidados Pessoais",
