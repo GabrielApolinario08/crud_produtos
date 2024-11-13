@@ -11,13 +11,13 @@ const Chart = ({ busca }) => {
   const productsPerPage = 5;
 
   // Função para buscar os produtos do backend com filtros
-  const refreshProducts = async (busca) => {
+  const refreshProducts = async () => {
     if (busca == null) {
       busca = "";
     }
-    console.log(busca + "asdfasdasdasd");
 
     try {
+      console.log("try: ", busca);
       const response = await fetch(
         `http://localhost:3000/api/produtos?pagina=${currentPage}&limite=${productsPerPage}&busca=${busca}`
       );

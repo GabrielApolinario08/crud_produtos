@@ -27,24 +27,22 @@ class ProdutoRepository {
         return produto;
     }
 
-    async buscarProdutos(pagina = 1, limite = 10, busca = '', categoria = '') {
-        const offset = (pagina - 1) * limite;
-        const filtros = {};
-    
-        // Adiciona condições de busca apenas se não forem nulas ou vazias
-        if (busca) {
-            filtros.nome = { [Op.like]: `%${busca}%` }; // Busca produtos com nome que contenha a palavra "busca"
-        }
-        if (categoria) {
-            filtros.categoria = categoria; // Filtra pela categoria exata
-        }
-    
-        return await Produto.findAndCountAll({
-            where: filtros,
-            limit: limite,
-            offset: offset
+    async buscarProdutos(pagina = 1, limite = 10, busca = '') {
+        const onde = busca ? {
+            [Op.or]: [
+                { nome: { [Op.like]: `%${busca}%` } },
+                { categoria: { [Op.like]: `%${busca}%` } }
+            ]
+        } : {};
+        console.log('Pagina:', pagina, 'Limite:', limite); 
+       
+        const produtos = await Produto.findAndCountAll({
+            where: onde,
+            limit: parseInt(limite, 10), 
+            offset: (pagina - 1) * limite,
         });
-    }
+        return produtos;
+    };
     
 }
 

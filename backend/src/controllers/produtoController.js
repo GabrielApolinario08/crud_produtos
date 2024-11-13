@@ -47,12 +47,13 @@ exports.deletarProduto = async (req, res) => {
 
 exports.listarProdutos = async (req, res) => {
     try {
+        
         const { pagina = 1, limite = 5, busca = '' } = req.query;
-
+        console.log("AHAH ", busca);
         const limiteNumero = parseInt(limite, 10); 
 
         const produtos = await produtoService.buscarProdutos(pagina, limiteNumero, busca);
-
+        console.log(produtos.rows);
         res.status(200).json({
             total: produtos.count, 
             pagina,
@@ -63,47 +64,6 @@ exports.listarProdutos = async (req, res) => {
         console.error(error);
         res.status(500).json({
             message: 'Erro ao buscar produtos',
-            error: error.message || error,
-        });
-    }
-};
-
-exports.listarProdutosComFiltro = async (req, res) => {
-    try {
-        const { pagina = 1, limite = 5, busca = '', categoria = '' } = req.query;
-        const produtos = await produtoService.buscarProdutos(pagina, limite, busca, categoria);
-
-        res.status(200).json({
-            total: produtos.count,
-            pagina,
-            limite,
-            produtos: produtos.rows,
-        });
-    } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
-        res.status(500).json({
-            message: 'Erro ao buscar produtos',
-            error: error.message || error,
-        });
-    }
-};
-
-exports.buscarProdutosComFiltro = async (req, res) => {
-    try {
-        const { pagina = 1, limite = 5, busca = '', categoria = '' } = req.query;
-
-        const produtos = await produtoService.buscarProdutos(pagina, limite, busca, categoria);
-
-        res.status(200).json({
-            total: produtos.count,
-            pagina,
-            limite,
-            produtos: produtos.rows,
-        });
-    } catch (error) {
-        console.error("Erro ao buscar produtos com filtro:", error);
-        res.status(500).json({
-            message: 'Erro ao buscar produtos com filtro',
             error: error.message || error,
         });
     }
