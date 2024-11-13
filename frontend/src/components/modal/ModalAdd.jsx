@@ -11,30 +11,47 @@ function ModalAdd({ show, onClose }) {
   const [productQuantity, setProductQuantity] = useState("");
   const [productCategory, setProductCategory] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
 
-    // Verifica a validade do formulário
     if (form.checkValidity() === false) {
-      setValidated(true); // Marca como inválido para mostrar os feedbacks
+      setValidated(true);
     } else {
-      Products.push({
-        name: productName,
-        description: productDescription,
-        price: productPrice,
-        quantity: parseInt(productQuantity),
-        category: productCategory,
-      });
-      alert("Produto Cadastrado");
-      setProductName("");
-      setProductDescription("");
-      setProductPrice("");
-      setProductQuantity("");
-      setProductCategory("");
+      const productData = {
+        nome: productName,
+        descricao: productDescription,
+        preco: parseFloat(productPrice),
+        quantidade: parseInt(productQuantity),
+        categoria: productCategory,
+      };
 
-      setValidated(false);
-      onClose();
+      try {
+        const response = await fetch("http://localhost:3000/api/produtos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(productData),
+        });
+
+        if (response.ok) {
+          alert("Produto cadastrado com sucesso!");
+          // Limpa o formulário após o envio
+          setProductName("");
+          setProductDescription("");
+          setProductPrice("");
+          setProductQuantity("");
+          setProductCategory("");
+          setValidated(false);
+          onClose();
+        } else {
+          alert("Erro ao cadastrar produto.");
+        }
+      } catch (error) {
+        console.error("Erro ao enviar o produto:", error);
+        alert("Erro ao cadastrar produto.");
+      }
     }
   };
 

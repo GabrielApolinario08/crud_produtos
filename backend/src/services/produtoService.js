@@ -4,6 +4,7 @@ class ProdutoService {
 
     async criarProduto(dadosProduto) {
         const { nome, preco, quantidade } = dadosProduto;
+        console.log(dadosProduto)
         if (!nome) throw new Error("O campo nome é obrigatório.");
         if (preco == undefined || preco == null) throw new Error("O campo preço é obrigatório.");
         if (quantidade == undefined || quantidade == null) throw new Error("O campo quantidade é obrigatório.");
