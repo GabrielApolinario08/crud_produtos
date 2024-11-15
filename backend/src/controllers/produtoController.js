@@ -49,7 +49,6 @@ exports.listarProdutos = async (req, res) => {
     try {
         
         const { pagina = 1, limite = 5, busca = '' } = req.query;
-        console.log("AHAH ", busca);
         const limiteNumero = parseInt(limite, 10); 
 
         const produtos = await produtoService.buscarProdutos(pagina, limiteNumero, busca);
