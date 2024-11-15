@@ -41,7 +41,8 @@ Este projeto é uma aplicação web que implementa um sistema de gerenciamento d
 ## Passo a Passo para Rodar a Aplicação
 
 ### Pré-Requisitos
-
+- **Node**
+- **Npm**
 - **MySQL**: Certifique-se de ter o MySQL instalado em sua máquina.
 - **Banco de Dados**: Crie o banco de dados `crud_produtos` no MySQL antes de rodar a aplicação.
 
