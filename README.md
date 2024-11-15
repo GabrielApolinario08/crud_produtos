@@ -116,3 +116,5 @@ Exemplo de arquivo config.json:
     ```
 
 Isso iniciará o servidor back-end e o front-end será servido automaticamente no terminal, onde você pode clicar e acessar.
+
+Participantes: Gabriel Apolinário Fabrício, Carlos Eduardo Oliveira e Carlos Eduardo Serafim 
