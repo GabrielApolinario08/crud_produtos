@@ -103,13 +103,13 @@ Exemplo de arquivo config.json:
   }
 }
 ```
-5. **Instalar Dependências**: No terminal, dentro da pasta do projeto, execute:
+5. **Instalar Dependências**: No terminal, dentro da pasta raiz do projeto "crud_produtos/", execute:
 
     ```bash
     npm install
     ```
 
-5. **Rodar a Aplicação**: Para iniciar a aplicação, execute o seguinte comando:
+6. **Rodar a Aplicação**: Para iniciar a aplicação, dentro da pasta raiz do projeto "crud_produtos/" execute o seguinte comando:
 
     ```bash
     npm run start
