@@ -12,14 +12,19 @@
 
 .btn-cadastrar {
   position: fixed; 
-  bottom: 20px;
-  right: 20px;
-  height: 150px !important; 
-  width: 150px !important;
-  border-radius: 10% !important;
+  bottom: 50px;
+  right: 50px;
+  padding: 1em 2em;
+  border-radius: 10px;
   background-color: #089301;
   color: aliceblue;
   font-weight: 600;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: none !important;
+}
+
+.btn-cadastrar:hover {
+    color: #089301;
+    background-color: aliceblue;
+    transition: .2s;
 }

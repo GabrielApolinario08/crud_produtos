@@ -1,17 +1,22 @@
-th{
+th {
     background-color: #0B5050 !important;
     border: none !important;
     color: aliceblue !important;
 }
-Table{
+
+Table {
     border: 1px solid #050505 !important;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-td{
+
+td {
     border: none !important;
+    word-wrap: break-word;
+    white-space: normal;
+    max-width: 300px;
 }
 
-.btn-editar{
+.btn-editar {
     background-color: #FAFF00;
     border: 1px solid black;
     border-radius: 10px;
@@ -20,17 +25,19 @@ td{
     font-weight: normal;
 }
 
-span.page-link{
+span.page-link {
     background-color: #027C54 !important;
-   
+
 }
-.page-link{
-    border-radius:50% !important;
+
+.page-link {
+    border-radius: 50% !important;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    
+
 }
-a.page-link{
-background-color: #2C3636 !important;
-color: aliceblue !important;
+
+a.page-link {
+    background-color: #2C3636 !important;
+    color: aliceblue !important;
 
 }

@@ -31,7 +31,7 @@ function App() {
         )}
 
         <button className="btn-cadastrar" onClick={handleOpenCreateModal}>
-          <p>Cadastrar novos produtos</p>
+          Cadastrar novo produto
         </button>
         <ModalCreate show={showCreateModal} onClose={handleCloseCreateModal} />
       </div>

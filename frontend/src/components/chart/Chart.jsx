@@ -5,12 +5,12 @@ import ModalEdit from "../modal/ModalEdit";
 import Search from "../search/Search";
 
 const Chart = ({ busca }) => {
-  const [products, setProducts] = useState([]); // Para armazenar os produtos do banco de dados
+  const [products, setProducts] = useState([]); 
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 5;
 
-  // Função para buscar os produtos do backend com filtros
+
   const refreshProducts = async () => {
     if (busca == null) {
       busca = "";
@@ -21,9 +21,9 @@ const Chart = ({ busca }) => {
       const response = await fetch(
         `http://localhost:3000/api/produtos?pagina=${currentPage}&limite=${productsPerPage}&busca=${busca}`
       );
-      const data = await response.json(); // Obtém o corpo da resposta como JSON
-      setProducts(data.produtos); // Armazena os produtos no estado
-      setTotalPages(Math.ceil(data.total / productsPerPage)); // Calcula o número de páginas
+      const data = await response.json(); 
+      setProducts(data.produtos); 
+      setTotalPages(Math.ceil(data.total / productsPerPage)); 
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
     }
@@ -32,11 +32,11 @@ const Chart = ({ busca }) => {
   const onEdit = () => {
     fetch("http://localhost:3000/api/produtos")
       .then((response) => response.json())
-      .then((data) => setProducts(data.produtos)); // Atualiza a lista de produtos após a edição
+      .then((data) => setProducts(data.produtos)); 
   };
 
   useEffect(() => {
-    refreshProducts(); // Chama a função para buscar produtos quando o componente for montado
+    refreshProducts(); 
   }, [currentPage, busca]);
 
   const indexOfLastProduct = currentPage * productsPerPage;

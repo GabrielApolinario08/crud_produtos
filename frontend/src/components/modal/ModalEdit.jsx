@@ -8,28 +8,24 @@ const ModalEdit = ({ show, handleClose, product, onEdit }) => {
   const [validated, setValidated] = useState(false);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
-  // Atualiza o estado com o produto selecionado quando o modal é aberto
   useEffect(() => {
     if (product) {
       setEditedProduct(product);
     }
   }, [product]);
 
-  // Função para validar o formulário e exibir alerta
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = document.getElementById("editForm");
 
-    // Verifica a validade do formulário usando o próprio Bootstrap
     if (form.checkValidity() === false) {
-      setValidated(true); // Mostra os feedbacks de erro
+      setValidated(true); 
     } else {
       try {
-        // Envia os dados atualizados para a API
         const response = await fetch(
           `http://localhost:3000/api/produtos/${editedProduct.id}`,
           {
-            method: "PUT", // Método para editar o produto
+            method: "PUT", 
             headers: {
               "Content-Type": "application/json",
             },
@@ -46,7 +42,7 @@ const ModalEdit = ({ show, handleClose, product, onEdit }) => {
         if (response.ok) {
           alert("Produto Editado com Sucesso");
           setShowConfirmDelete(false);
-          handleClose(); // Fecha o modal
+          handleClose(); 
           onEdit();
         } else {
           alert("Erro ao editar produto");
